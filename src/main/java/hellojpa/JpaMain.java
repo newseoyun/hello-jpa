@@ -21,8 +21,8 @@ public class JpaMain {
         try {
             /*
             Member member = new Member();
-            member.setId(2L);
-            member.setName("HelloB");
+            member.setId(3L);
+            member.setName("Hello333");
             em.persist(member);
             */
 
@@ -32,8 +32,8 @@ public class JpaMain {
             */
 
             List<Member> result = em.createQuery("select m from Member as m", Member.class) //JPQL
-                    .setFirstResult(5)
-                    .setMaxResults(8)  //페이징이 매우 간단
+                    .setFirstResult(0)
+                    .setMaxResults(3)  //페이징이 매우 간단
                     .getResultList();
 
             for (Member member : result) {
