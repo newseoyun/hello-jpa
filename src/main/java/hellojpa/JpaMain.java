@@ -31,6 +31,7 @@ public class JpaMain {
             findMember.setName("HelloJPA"); //set 후 persist 안해줘도 알아서 업데이트 해줌. 자바 컬렉션 사용하듯이
             */
 
+            /*
             List<Member> result = em.createQuery("select m from Member as m", Member.class) //JPQL
                     .setFirstResult(0)
                     .setMaxResults(3)  //페이징이 매우 간단
@@ -39,6 +40,12 @@ public class JpaMain {
             for (Member member : result) {
                 System.out.println("member.name = " + member.getName());
             }
+            */
+
+            Member member = new Member();
+            member.setUsername("A");
+            em.persist(member);
+
 
             tx.commit();
         } catch (Exception e) {
