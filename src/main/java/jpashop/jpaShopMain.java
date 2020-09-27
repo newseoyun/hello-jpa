@@ -1,7 +1,7 @@
 package jpashop;
 
-import jpashop.domain.Order;
-import jpashop.domain.OrderItem;
+import jpashop.domain.Book;
+import jpashop.domain.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,11 +19,22 @@ public class jpaShopMain {
         tx.begin();
 
         try {
+            
+            Member member1 = new Member();
+            member1.setName("member1");
+            em.persist(member1);
+            
+            em.flush();
+            em.clear();
 
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
+            // 프록시 확인인
+           Member refMember = em.getReference(Member.class, member1.getId());
+            System.out.println("refMember = " + refMember.getClass());
+            
+            refMember.getName();
 
-
+            // 프록시 인스턴스 초기화 여부 확인
+            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
 
             tx.commit();
         } catch (Exception e) {
