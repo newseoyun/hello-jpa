@@ -23,7 +23,8 @@ public class jpaShopMain {
             Member member1 = new Member();
             member1.setName("member1");
             em.persist(member1);
-            
+
+            /*
             em.flush();
             em.clear();
 
@@ -35,7 +36,7 @@ public class jpaShopMain {
 
             // 프록시 인스턴스 초기화 여부 확인
             System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
-
+            */
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
