@@ -27,8 +27,8 @@ public class jpaShopMain {
             em.flush();
             em.clear();
 
-            // 프록시 확인인
-           Member refMember = em.getReference(Member.class, member1.getId());
+            // 프록시 확인
+            Member refMember = em.getReference(Member.class, member1.getId());
             System.out.println("refMember = " + refMember.getClass());
             
             refMember.getName();
